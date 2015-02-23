@@ -31,13 +31,13 @@ public class ALButton: UIButton {
     private typealias KVOContext = UInt8
     private var context = KVOContext()
 
+    public var style: ButtonStyle = ButtonStyle()
     private var touchUpInsideHandlers: [ButtonHandler] = []
-    private var style: ButtonStyle = ButtonStyle()
     private var touchingDown = false
     
     //MARK- Initializers
     
-    public init(title: String!, style: ButtonStyle? = nil, touchUpHandler: ButtonHandler? = nil) {
+    public init(title: String!, style: ButtonStyle? = nil, touchUpInsideHandler: ButtonHandler? = nil) {
         super.init(frame: CGRectZero)
         
         self.setTitle(title, forState: .Normal)
@@ -55,9 +55,17 @@ public class ALButton: UIButton {
         self.addObserver(self, forKeyPath: "enabled", options: .New | .Old, context: &context)
         self.addObserver(self, forKeyPath: "style", options: .New | .Old, context: &context)
     }
+    
+    convenience init(title: String!, touchUpHandler: ButtonHandler!) {
+        self.init(title: title, style: nil, touchUpInsideHandler: touchUpHandler)
+    }
 
     required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(frame: CGRect) {
+        fatalError("init(frame:) should not be used")
     }
     
     //MARK- Base Overrides
