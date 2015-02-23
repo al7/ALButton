@@ -8,6 +8,12 @@ This control is a subclass of Apple's default UIButton. It adds some functionali
 
 The simplest way to integrate the control to your project is to simply copy the *ALButton.swift* file to your project.
 
+You can also use CocoaPods by adding the following line to your Podfile:
+
+```
+pod 'ALButton'
+```
+
 ### How to use
 
 #### Initialization
