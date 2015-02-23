@@ -1,4 +1,4 @@
-# ALButton: UIButton with some extra flavor, in Swift
+# ALButton
 
 ### About
 
